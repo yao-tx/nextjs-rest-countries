@@ -3,91 +3,89 @@ import {
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import Link from "next/link";
-import type { CountryPageProps } from "@/utils/types";
-import type { GetStaticProps } from "next";
+import Image from "next/image";
 import { Layout } from "@/components/Layout";
 import { AttributeBox } from "@/components/AttributeBox";
-import Image from "next/image";
+import type { CountryPageProps } from "@/utils/types";
+import type { GetStaticProps } from "next";
 
 const CountryPage = ({ country }: { country: CountryPageProps }) => {
   return (
-    <>
-      <Layout>
-        <div className="relative mt-12 mb-5 md:mt-20 md:mb-12">
-          <Link
-            href="/"
-            className="inline-block mb-12 xl:absolute left-0 border-2 border-emerald-600 font-semibold text-emerald-600 rounded-md py-2 px-3 hover:bg-emerald-600 hover:text-white self-start dark:bg-emerald-900 dark:text-white dark:hover:bg-emerald-800 dark:border-emerald-900 dark:hover:border-emerald-800"
+    <Layout>
+      <div className="relative mt-12 mb-5 md:mt-20 md:mb-12">
+        <Link
+          href="/"
+          className="inline-block mb-12 xl:absolute left-0 border-2 border-emerald-600 font-semibold text-emerald-600 rounded-md py-2 px-3 hover:bg-emerald-600 hover:text-white self-start dark:bg-emerald-900 dark:text-white dark:hover:bg-emerald-800 dark:border-emerald-900 dark:hover:border-emerald-800"
+        >
+          <span className="flex flex-row ">
+            <ArrowSmallLeftIcon className="w-5 inline mr-2" />
+            Back
+          </span>
+        </Link>
+        <h1 className="text-center font-bold text-5xl text-black dark:text-white">{country.flag}&nbsp;&nbsp;{country.name}</h1>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 bg-neutral-50 dark:bg-neutral-800 shadow-md rounded-lg overflow-hidden mt-8 p-5">
+        <div className="col-span-5 md:col-span-3 lg:col-span-2">
+          <Image
+            src={country.image}
+            alt={country.name}
+            width="1000"
+            height="1000"
+            className="min-w-full h-auto mb-3"
+          />
+          <a
+            href={country.googleMaps}
+            target="_blank"
+            className="flex flex-row align-center text-sm text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <span className="flex flex-row ">
-              <ArrowSmallLeftIcon className="w-5 inline mr-2" />
-              Back
-            </span>
-          </Link>
-         <h1 className="text-center font-bold text-5xl text-black dark:text-white">{country.flag}&nbsp;&nbsp;{country.name}</h1>
+            <ArrowTopRightOnSquareIcon className="w-4 inline mr-2" />
+            Google Maps
+          </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 bg-neutral-50 dark:bg-neutral-800 shadow-md rounded-lg overflow-hidden mt-8 p-5">
-          <div className="col-span-5 md:col-span-3 lg:col-span-2">
-            <Image
-              src={country.image}
-              alt={country.name}
-              width="1000"
-              height="1000"
-              className="min-w-full h-auto mb-3"
-            />
-            <a
-              href={country.googleMaps}
-              target="_blank"
-              className="flex flex-row align-center text-sm text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
-            >
-              <ArrowTopRightOnSquareIcon className="w-4 inline mr-2" />
-              Google Maps
-            </a>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 col-span-5 md:col-span-3 lg:auto-rows-min">
-            <AttributeBox
-              title="Official Name"
-              description={country.official}
-            />
-            <AttributeBox
-              title="Capital"
-              description={country.capital.length ? country.capital.join(", ") : "-"}
-            />
-            <AttributeBox
-              title="Region"
-              description={country.region}
-            />
-            <AttributeBox
-              title="Sub-region"
-              description={country.subregion ? country.subregion : "-"}
-            />
-            <AttributeBox
-              title="Population"
-              description={country.population.toLocaleString("en-US")}
-            />
-            <AttributeBox
-              title="Area (km²)"
-              description={country.area.toLocaleString("en-US")}
-            />
-            <AttributeBox
-              title="Currency"
-              description={country.currencies.length ? country.currencies.join(", ") : "-"}
-            />
-            <AttributeBox
-              title="Timezone"
-              description={country.timezones.join(", ")}
-            />
-            <AttributeBox
-              title="IDD"
-              description={country.idds.length ? country.idds.join(", ") : "-"}
-            />
-            <AttributeBox
-              title="Language"
-              description={country.languages.length ? country.languages.join(", ") : "-"}
-            />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 col-span-5 md:col-span-3 lg:auto-rows-min">
+          <AttributeBox
+            title="Official Name"
+            description={country.official}
+          />
+          <AttributeBox
+            title="Capital"
+            description={country.capital.length ? country.capital.join(", ") : "-"}
+          />
+          <AttributeBox
+            title="Region"
+            description={country.region}
+          />
+          <AttributeBox
+            title="Sub-region"
+            description={country.subregion ? country.subregion : "-"}
+          />
+          <AttributeBox
+            title="Population"
+            description={country.population.toLocaleString("en-US")}
+          />
+          <AttributeBox
+            title="Area (km²)"
+            description={country.area.toLocaleString("en-US")}
+          />
+          <AttributeBox
+            title="Currency"
+            description={country.currencies.length ? country.currencies.join(", ") : "-"}
+          />
+          <AttributeBox
+            title="Timezone"
+            description={country.timezones.join(", ")}
+          />
+          <AttributeBox
+            title="IDD"
+            description={country.idds.length ? country.idds.join(", ") : "-"}
+          />
+          <AttributeBox
+            title="Language"
+            description={country.languages.length ? country.languages.join(", ") : "-"}
+          />
         </div>
-      </Layout>
-    </>
+      </div>
+    </Layout>
   );
 };
 

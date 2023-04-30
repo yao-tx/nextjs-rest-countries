@@ -1,11 +1,11 @@
+import Head from "next/head";
 import { Poppins } from "next/font/google";
 import { Layout } from "@/components/Layout";
-import Head from "next/head";
 import { Card } from "@/components/Card";
-import type { CountryProps } from "@/utils/types";
 import { SearchBar } from "@/components/SearchBar";
 import { useState, useEffect } from "react";
 import { getCountries } from "@/utils/cachedCountries";
+import type { CountryProps } from "@/utils/types";
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800', '900'],

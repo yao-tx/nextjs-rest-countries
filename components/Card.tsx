@@ -4,9 +4,9 @@ import {
   BuildingLibraryIcon,
   Square2StackIcon,
 } from '@heroicons/react/24/outline';
-import type { CountryProps } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
+import type { CountryProps } from "@/utils/types";
 
 export function Card({
   name,
