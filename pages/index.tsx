@@ -50,7 +50,7 @@ export default function Home({ countries }: { countries: CountryProps[] }) {
           onSelectChange={handleSelectChange}
           filters={regionFilters}
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8 lg:gap-12 mt-12">
         {filteredCountryData.length ? filteredCountryData.map((country) => (
           <Card
             key={country.countryCode}
