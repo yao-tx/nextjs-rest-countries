@@ -20,7 +20,7 @@ export function Card({
   return (
     <Link
       href={`/country/${countryCode}`}
-      scroll={false}
+      scroll={true}
       className="flex flex-col overflow-hidden bg-white rounded-md shadow-md hover:shadow-lg text-black dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
     >
       <div className="relative aspect-video">
